@@ -8,8 +8,8 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to SimpleTODO. What would you like to do?");
 
-        while(true) {
-
+        //Main loop
+        while (true) {
             System.out.println("Enter: c - to create a new task, r - to view all tasks, u - to update a task, a - to update task status, d - to delete a task, q - to quit SimpleTODO)?");
             String userChoice = scan.nextLine();
 
@@ -51,15 +51,12 @@ public class Main {
                     break;
 
                 case "q":
-                    end();
+                    System.out.println("Thank you for using SimpleTODO. Good bye!");
                     return;
 
                 default:
                     System.out.println("Something wrong");
             }
         }
-    }
-    public static void end () {
-        System.out.println("Thank you for using SimpleTODO. Good bye!");
     }
 }

@@ -3,9 +3,9 @@ import java.sql.*;
 public class DBlogic {
     private String DB = "jdbc:mysql://localhost:3306/todo";
 
-    private String USER = "root";
+    private String USER = "";
 
-    private String PASS = "1234";
+    private String PASS = "";
 
     //crud -create, read, update, delete
 
@@ -42,6 +42,7 @@ public class DBlogic {
         stmt.executeUpdate(update);
     }
 
+    //update status
     public void updateStatus(String rowID) throws SQLException {
         Connection conn = DriverManager.getConnection(DB, USER, PASS);
         Statement stmt = conn.createStatement();
@@ -62,8 +63,9 @@ public class DBlogic {
 
         while (resultSet.next()) {
             System.out.print(resultSet.getInt("id") + "." + " ");
-            System.out.println("Task: " + resultSet.getString("task"));
-            System.out.println("Status: " + resultSet.getString("status"));
+            System.out.println(resultSet.getString("task") + " ");
+            System.out.print("Status: " + resultSet.getString("status") + " | ");
+            System.out.println("Created at: " + resultSet.getString("created"));
             System.out.println(" ");
         }
     }
